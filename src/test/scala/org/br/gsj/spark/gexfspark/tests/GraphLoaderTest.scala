@@ -5,20 +5,20 @@ import org.br.gsj.spark.gexfspark.graph.GraphLoader
 import org.br.gsj.spark.gexfspark.graph.GraphLoader
 
 
+
 object GraphLoaderTest {
   def main(args: Array[String]): Unit = {
     
     val spark = SparkSession.builder()
     .appName("GexfSparkTest").master("local[*]").getOrCreate()
     
-    val path = "/home/gsjunior/Documents/gexf/hierarchy4.gexf"
+    val path = "src/test/resources/ht2009_15min.gexf"
     
-    val graph = new GraphLoader(spark,path)
+    val gl = new GraphLoader(spark,path)
     
-    val nodes = graph.nodes
-    val edges = graph.edges
-    
-    edges.foreach(f => println(f.source + " - " + f.target))
+    println("Number of nodes: " + gl.loadGraphXGraph().numVertices)
+    println("Number of edges: " + gl.loadGraphXGraph().numEdges)
+
     
   }
 }
