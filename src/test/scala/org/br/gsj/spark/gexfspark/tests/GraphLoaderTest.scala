@@ -21,12 +21,6 @@ object GraphLoaderTest {
     
     val path = "src/test/resources/sp_data_school_day_1_g.gexf"
     
-//    val gl = new GraphLoader(spark,path,FileType.Gexf)
-//    
-//    println("Number of nodes: " + gl.loadGraphXGraph().numVertices)
-//    println("Number of edges: " + gl.loadGraphXGraph().numEdges)
-//
-//    
         
     val nodes_rdd = spark.sparkContext.parallelize( List(1,2,3,4,5).map(f => new Node(f.toString())))
     val edges_rdd = spark.sparkContext.parallelize( List( (1,2),(1,3),(2,4),(2,5),(4,5),(3,5))
