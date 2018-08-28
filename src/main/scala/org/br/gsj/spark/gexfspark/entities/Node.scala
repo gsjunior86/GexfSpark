@@ -2,6 +2,13 @@ package org.br.gsj.spark.gexfspark.entities
 
 import scala.collection.mutable.HashMap
 
+
+/**
+ * The representation of a node
+ * 
+ * @author Geraldo de Souza Junior
+ * 
+ */
 case class Node (id:String, var label: String, var other_attributes: HashMap[String,String]) {
   
   if(label == null){

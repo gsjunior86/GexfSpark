@@ -9,6 +9,7 @@ import org.apache.spark.sql.Row
 import org.br.gsj.spark.gexfspark.graph.GraphWriter
 import org.br.gsj.spark.gexfspark.entities.Node
 import org.br.gsj.spark.gexfspark.entities.Edge
+import org.br.gsj.spark.gexfspark.enums.GexfType
 
 
 
@@ -32,19 +33,8 @@ object GraphLoaderTest {
         .map(f => new Edge(f._1.toString(),f._2.toString()) ))
     
     val gw = new GraphWriter(spark)
-    gw.writeGexfFile(nodes_rdd, edges_rdd, "")
+    gw.writeGexfFile(nodes_rdd, edges_rdd, new GexfType(),"src/test/resources/gexf_test.xml",1)
     
-    
-//        var df_edges = spark.sqlContext.read
-//        .format("com.databricks.spark.xml")
-//        .option("rowTag", "graph")
-//                .option("rowTag", "gexf")
-//
-//        .load(path)
-//        
-//        df_edges.show
-//        
-//        df_edges.printSchema()
-    
+   
   }
 }

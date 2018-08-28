@@ -1,5 +1,13 @@
 package org.br.gsj.spark.gexfspark.entities
 
+/**
+ * 
+ * The representation of an Edge
+ * 
+ * @author Geraldo de Souza Junior
+ * 
+ */
+
 import scala.collection.mutable.HashMap
 
 case class Edge (source: String, target: String, var other_attributes: HashMap[String,String] ) {

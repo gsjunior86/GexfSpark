@@ -1,9 +1,16 @@
 package org.br.gsj.spark.gexfspark.enums
 
-object GexfType extends Enumeration{
+/**
+ * 
+ * Gexf configuration for graph generation
+ * 
+ * @author Geraldo de Souza Junior
+ * 
+ */
+class GexfType{
   
-  val xlmns = "http://www.gexf.net/1.2draft"
-  val version = "1.2"
+  var defaultedgetype = "undirected"
+  var mode = "static"
   
 
 }

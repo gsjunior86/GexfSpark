@@ -1,6 +1,7 @@
 package org.br.gsj.spark.gexfspark.graph
 
 import org.apache.spark.sql.SparkSession
+
 import org.apache.spark.sql.functions._
 import org.br.gsj.spark.gexfspark.utils.Utils._
 import org.apache.spark.rdd.RDD
@@ -9,6 +10,14 @@ import org.br.gsj.spark.gexfspark.entities.Edge
 import org.apache.spark.graphx.VertexId
 import org.apache.spark.graphx.Graph
 import org.br.gsj.spark.gexfspark.enums.FileType
+
+
+/**
+ * Transforms a graph from a filetype to GraphX
+ * 
+ * @author Geraldo de Souza Junior
+ * 
+ */
 
 class GraphLoader(spark: SparkSession, path: String, fileType : FileType.Value) {
   
