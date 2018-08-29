@@ -2,12 +2,13 @@
   <modelVersion>4.0.0</modelVersion>
   <groupId>org.br.gsj.spark</groupId>
   <artifactId>GexfSpark</artifactId>
-  <version>0.0.1-SNAPSHOT</version>
+  <version>0.1-SNAPSHOT</version>
   
   
   <properties>
 	    <maven.compiler.source>1.8</maven.compiler.source>
 	    <maven.compiler.target>1.8</maven.compiler.target>
+	    <scala.version>2.11.11</scala.version>
 	</properties>
 	
 	
@@ -32,6 +33,25 @@
   
   <dependencies>
   
+  <!-- Scala -->
+			<dependency>
+				<groupId>org.scala-lang</groupId>
+				<artifactId>scala-library</artifactId>
+				<version>${scala.version}</version>
+			</dependency>
+
+			<dependency>
+				<groupId>org.scala-lang</groupId>
+				<artifactId>scala-reflect</artifactId>
+				<version>${scala.version}</version>
+			</dependency>
+
+			<dependency>
+				<groupId>org.scala-lang</groupId>
+				<artifactId>scalap</artifactId>
+				<version>${scala.version}</version>
+			</dependency>
+  
   
 		<!-- https://mvnrepository.com/artifact/com.databricks/spark-xml -->
 		<dependency>
@@ -45,6 +65,7 @@
 		    <groupId>org.apache.spark</groupId>
 		    <artifactId>spark-core_2.11</artifactId>
 		    <version>2.2.1</version>
+		    <scope>provided</scope>
 		</dependency>
 		
 		
@@ -53,6 +74,7 @@
 		    <groupId>org.apache.spark</groupId>
 		    <artifactId>spark-sql_2.11</artifactId>
 		    <version>2.2.1</version>
+		     <scope>provided</scope>
 		    
 		</dependency>
 
