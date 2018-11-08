@@ -38,8 +38,7 @@ class GraphLoader(spark: SparkSession, path: String, fileType : FileType.Value) 
         
   }
    
- 
-  
+
   private def createNodes(spark: SparkSession, path: String): RDD[Node] = {
     if (fileType.equals(FileType.Gexf)){
       var df_nodes = spark.sqlContext.read

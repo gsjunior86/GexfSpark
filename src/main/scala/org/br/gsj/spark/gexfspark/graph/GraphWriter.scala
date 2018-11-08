@@ -1,6 +1,6 @@
 package org.br.gsj.spark.gexfspark.graph
 
-import org.apache.spark.sql.SparkSession
+import org.apache.spark.sql.{SparkSession,DataFrame}
 import org.br.gsj.spark.gexfspark.enums.FileType
 import org.apache.spark.rdd.RDD
 import org.br.gsj.spark.gexfspark.entities.Node
@@ -22,8 +22,13 @@ class GraphWriter(spark: SparkSession) {
   
   import spark.implicits._
   
+  /**
+   * 
+   * Creates a DataFrame XML from and RDD[Node] and RDD[Edge]
+   * 
+   */
   
-  def writeGexfFile(nodes: RDD[Node], edges: RDD[Edge], gexfType : GexfType, path: String, partitions: Integer){
+  def createXmlDataFrame(nodes: RDD[Node], edges: RDD[Edge], gexfType : GexfType): DataFrame =  {
     
     val gexf_schema = StructType(List(
         
@@ -61,12 +66,18 @@ class GraphWriter(spark: SparkSession) {
      edges_df = edges_df.groupBy("id").agg(collect_set("edges").as("edge"))
 
      
-     gexf_df = gexf_df.join(nodes_df, Seq("id"),"right").join(edges_df, Seq("id"),"right").drop("id")
+     gexf_df.join(nodes_df, Seq("id"),"right").join(edges_df, Seq("id"),"right").drop("id")
      .withColumn("nodes", struct($"node")).drop("node")
      .withColumn("edges", struct($"edge")).drop("edge")
+    
+    
+  }
+  
+  def writeGexfFile(nodes: RDD[Node], edges: RDD[Edge], gexfType : GexfType, path: String, partitions: Integer) = {
+    
+    val gexf_df = createXmlDataFrame(nodes,edges,gexfType)   
  
      if(partitions == null){
-       println("ESTA NULO")
        gexf_df.write.
         format("com.databricks.spark.xml")
         .option("rowTag", "graph")
