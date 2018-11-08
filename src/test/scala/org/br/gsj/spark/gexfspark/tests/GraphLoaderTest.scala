@@ -11,7 +11,10 @@ import org.br.gsj.spark.gexfspark.enums.FileType
  * Tests if the graph is correctly loaded
  * 
  */
-class GraphLoaderTest extends SparkTest{
+class GraphLoaderTest extends FunSuite{
+  
+  val spark = SparkSession.builder()
+    .appName("GexfSparkTest").master("local[*]").getOrCreate()
     
   val path1 = "src/test/resources/gexf/sp_data_school_day_1_g.gexf"
   val gl1 = new GraphLoader(spark,path1,FileType.Gexf)

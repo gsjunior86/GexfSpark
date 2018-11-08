@@ -16,3 +16,5 @@ buildNumber.properties
 >>>>>>> 4c66192eb7501a8b4de2e953512fc60298c74567
 /.cache-main
 /.cache-tests
+/.classpath
+/.project

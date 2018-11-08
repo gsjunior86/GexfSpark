@@ -8,6 +8,8 @@ import org.br.gsj.spark.gexfspark.entities.Edge
 import org.br.gsj.spark.gexfspark.entities.Node
 import org.br.gsj.spark.gexfspark.enums.GexfType
 import org.br.gsj.spark.gexfspark.graph.GraphWriter
+import org.apache.spark.sql.SparkSession
+import org.scalatest.FunSuite
 
 
 
@@ -19,9 +21,11 @@ import org.br.gsj.spark.gexfspark.graph.GraphWriter
  * @author Geraldo de Souza Junior
  * 
  */
-class GraphWriterTest extends SparkTest{
+class GraphWriterTest extends FunSuite{
   
-    
+    val spark = SparkSession.builder()
+    .appName("GexfSparkTest").master("local[*]").getOrCreate()  
+  
      val nodes_rdd = spark.sparkContext.parallelize( List(1,2,3,4,5).map(f => new Node(f.toString())))
      val edges_rdd = spark.sparkContext.parallelize( List( (1,2),(1,3),(2,4),(2,5),(4,5),(3,5))
         .map(f => new Edge(f._1.toString(),f._2.toString()) ))
