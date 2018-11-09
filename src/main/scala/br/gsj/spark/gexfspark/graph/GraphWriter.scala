@@ -1,13 +1,13 @@
-package org.br.gsj.spark.gexfspark.graph
+package br.gsj.spark.gexfspark.graph
 
 import org.apache.spark.sql.{SparkSession,DataFrame}
-import org.br.gsj.spark.gexfspark.enums.FileType
+import br.gsj.spark.gexfspark.enums.FileType
 import org.apache.spark.rdd.RDD
-import org.br.gsj.spark.gexfspark.entities.Node
-import org.br.gsj.spark.gexfspark.entities.Edge
+import br.gsj.spark.gexfspark.entities.Node
+import br.gsj.spark.gexfspark.entities.Edge
 import org.apache.spark.sql.types._
 import org.apache.spark.sql.Row
-import org.br.gsj.spark.gexfspark.enums.GexfType
+import br.gsj.spark.gexfspark.enums.GexfType
 import org.apache.spark.sql.functions._
 
 /**

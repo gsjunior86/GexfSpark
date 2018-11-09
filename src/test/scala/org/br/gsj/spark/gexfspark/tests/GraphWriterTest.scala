@@ -1,13 +1,13 @@
-package org.br.gsj.spark.gexfspark.tests
+package br.gsj.spark.gexfspark.tests
 
 import java.io.File
 
 import scala.io.Source
 
-import org.br.gsj.spark.gexfspark.entities.Edge
-import org.br.gsj.spark.gexfspark.entities.Node
-import org.br.gsj.spark.gexfspark.enums.GexfType
-import org.br.gsj.spark.gexfspark.graph.GraphWriter
+import br.gsj.spark.gexfspark.entities.Edge
+import br.gsj.spark.gexfspark.entities.Node
+import br.gsj.spark.gexfspark.enums.GexfType
+import br.gsj.spark.gexfspark.graph.GraphWriter
 import org.apache.spark.sql.SparkSession
 import org.scalatest.FunSuite
 

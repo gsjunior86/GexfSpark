@@ -1,8 +1,22 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
   <modelVersion>4.0.0</modelVersion>
-  <groupId>org.br.gsj.spark</groupId>
+  <groupId>br.gsj.spark</groupId>
   <artifactId>GexfSpark</artifactId>
   <version>0.1-SNAPSHOT</version>
+  <packaging>jar</packaging>
+  
+  
+  <licenses>
+    <license>
+      <name>GPL 3.0</name>
+      <url>https://www.gnu.org/licenses/gpl-3.0.html</url>
+      <distribution>repo</distribution>
+    </license>
+  </licenses>
+  
+   <scm>
+    <url>https://svn.apache.org/viewvc/maven</url>
+  </scm>
   
   
   <properties>

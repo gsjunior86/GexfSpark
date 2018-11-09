@@ -1,9 +1,9 @@
-package org.br.gsj.spark.gexfspark.tests
+package br.gsj.spark.gexfspark.tests
 
 import org.scalatest.FunSuite
 import org.apache.spark.sql.SparkSession
-import org.br.gsj.spark.gexfspark.graph.GraphLoader
-import org.br.gsj.spark.gexfspark.enums.FileType
+import br.gsj.spark.gexfspark.graph.GraphLoader
+import br.gsj.spark.gexfspark.enums.FileType
 
 
 /**

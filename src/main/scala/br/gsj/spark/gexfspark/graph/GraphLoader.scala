@@ -1,15 +1,15 @@
-package org.br.gsj.spark.gexfspark.graph
+package br.gsj.spark.gexfspark.graph
 
 import org.apache.spark.sql.SparkSession
 
 import org.apache.spark.sql.functions._
-import org.br.gsj.spark.gexfspark.utils.Utils._
+import br.gsj.spark.gexfspark.utils.Utils._
 import org.apache.spark.rdd.RDD
-import org.br.gsj.spark.gexfspark.entities.Node
-import org.br.gsj.spark.gexfspark.entities.Edge
+import br.gsj.spark.gexfspark.entities.Node
+import br.gsj.spark.gexfspark.entities.Edge
 import org.apache.spark.graphx.VertexId
 import org.apache.spark.graphx.Graph
-import org.br.gsj.spark.gexfspark.enums.FileType
+import br.gsj.spark.gexfspark.enums.FileType
 
 
 /**

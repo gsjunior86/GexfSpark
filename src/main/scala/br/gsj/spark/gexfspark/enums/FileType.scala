@@ -1,4 +1,4 @@
-package org.br.gsj.spark.gexfspark.enums
+package br.gsj.spark.gexfspark.enums
 
 /**
  * 

@@ -1,4 +1,4 @@
-package org.br.gsj.spark.gexfspark.entities
+package br.gsj.spark.gexfspark.entities
 
 import scala.collection.mutable.HashMap
 
