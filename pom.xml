@@ -5,12 +5,6 @@
   <version>0.1-SNAPSHOT</version>
   <packaging>jar</packaging>
   
-  <parent>
-        <groupId>org.sonatype.oss</groupId>
-        <artifactId>oss-parent</artifactId>
-        <version>9</version>
-    </parent>
-  
   
   <licenses>
     <license>
@@ -35,6 +29,8 @@
     <sourceDirectory>src/main/scala</sourceDirectory>
     <testSourceDirectory>src/test/scala</testSourceDirectory>
     <plugins>
+    
+    
            
       <plugin>
 	        <groupId>org.apache.maven.plugins</groupId>
@@ -46,56 +42,25 @@
 	        </configuration>
 	  </plugin>
 	  
-	  <plugin>
+	<plugin>
                 <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-source-plugin</artifactId>
-                <version>2.2.1</version>
+                <artifactId>maven-shade-plugin</artifactId>
+                <version>1.6</version>
                 <executions>
                     <execution>
-                        <id>attach-sources</id>
+                        <phase>package</phase>
                         <goals>
-                            <goal>jar-no-fork</goal>
+                            <goal>shade</goal>
                         </goals>
+                        <configuration>
+                            <artifactSet>
+                                <includes>
+                                   <include>com.databricks:spark-xml_2.11</include>
+                                </includes>
+                            </artifactSet>
+                        </configuration>
                     </execution>
                 </executions>
-            </plugin>
-            <plugin>
-                <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-javadoc-plugin</artifactId>
-                <version>2.9.1</version>
-                <executions>
-                    <execution>
-                        <id>attach-javadocs</id>
-                        <goals>
-                            <goal>jar</goal>
-                        </goals>
-                    </execution>
-                </executions>
-            </plugin>
-            <plugin>
-                <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-gpg-plugin</artifactId>
-                <version>1.5</version>
-                <executions>
-                    <execution>
-                        <id>sign-artifacts</id>
-                        <phase>verify</phase>
-                        <goals>
-                            <goal>sign</goal>
-                        </goals>
-                    </execution>
-                </executions>
-            </plugin>
-            <plugin>
-                <groupId>org.sonatype.plugins</groupId>
-                <artifactId>nexus-staging-maven-plugin</artifactId>
-                <version>1.6.7</version>
-                <extensions>true</extensions>
-                <configuration>
-                    <serverId>ossrh</serverId>
-                    <nexusUrl>https://oss.sonatype.org/</nexusUrl>
-                    <autoReleaseAfterClose>true</autoReleaseAfterClose>
-                </configuration>
             </plugin>
 	  
     </plugins>
@@ -109,18 +74,21 @@
 				<groupId>org.scala-lang</groupId>
 				<artifactId>scala-library</artifactId>
 				<version>${scala.version}</version>
+				<optional>true</optional>
 			</dependency>
 
 			<dependency>
 				<groupId>org.scala-lang</groupId>
 				<artifactId>scala-reflect</artifactId>
 				<version>${scala.version}</version>
+				<optional>true</optional>
 			</dependency>
 
 			<dependency>
 				<groupId>org.scala-lang</groupId>
 				<artifactId>scalap</artifactId>
 				<version>${scala.version}</version>
+								
 			</dependency>
   
   
@@ -136,7 +104,7 @@
 		    <groupId>org.apache.spark</groupId>
 		    <artifactId>spark-core_2.11</artifactId>
 		    <version>2.2.1</version>
-		    <scope>provided</scope>
+		    <optional>true</optional>
 		</dependency>
 		
 		
@@ -145,8 +113,7 @@
 		    <groupId>org.apache.spark</groupId>
 		    <artifactId>spark-sql_2.11</artifactId>
 		    <version>2.2.1</version>
-		     <scope>provided</scope>
-		    
+		    <optional>true</optional>        
 		</dependency>
 
 			<!-- https://mvnrepository.com/artifact/org.apache.spark/spark-graphx_2.11 -->
@@ -154,7 +121,7 @@
 		    <groupId>org.apache.spark</groupId>
 		    <artifactId>spark-graphx_2.11</artifactId>
 		    <version>2.2.1</version>
-		    <scope>provided</scope>
+		    <optional>true</optional> 
 		</dependency>
 		
 
@@ -162,6 +129,7 @@
 		  <groupId>org.scalatest</groupId>
 		  <artifactId>scalatest_2.11</artifactId>
 		  <version>3.0.5</version>
+		  <optional>true</optional>
 		  <scope>test</scope>
 		</dependency>
   
