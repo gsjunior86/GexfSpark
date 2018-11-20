@@ -15,6 +15,14 @@ Also, uses the DataFrame API to write Gexf and other graph formats.
 
 Usage
 ------------------
+Be sure to have the following spark dependencies in your project:
+ - spark-core_2.11
+ - spark-sql_2.11
+ - spark-graphx_2.11
+
+Compatible with Scala 2.11.XX and Spark 2.XX only
+
+
 #### Loading Graphs:
 You can load a Gexf file into GraphX's RDD by calling:
 
