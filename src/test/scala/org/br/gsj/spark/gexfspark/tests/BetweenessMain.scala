@@ -11,14 +11,14 @@ object BetweenessMain {
     
     val sc = spark.sparkContext
    
-    val path = "src/test/resources/gexf/hero_social.gexf"
+    val path = "src/test/resources/gexf/ht2009_15min.gexf"
     
     val graphLoader = new GraphLoader(spark,path,FileType.Gexf)
     
     val graph = graphLoader.loadGraphXGraph()
     
-//    print("Nodes: " + graph.numVertices)
-//    print("Edges: " + graph.numEdges)
+    print("Nodes: " + graph.numVertices)
+    print("Edges: " + graph.numEdges)
     
     
 
