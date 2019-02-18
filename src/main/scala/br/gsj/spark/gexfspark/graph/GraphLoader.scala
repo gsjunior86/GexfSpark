@@ -27,7 +27,7 @@ class GraphLoader(spark: SparkSession, path: String, fileType: FileType.Value) {
 
     val nodes_graph: RDD[(VertexId, String)] = nodes.map(f => (f.id.toLong, f.label))
     
-    val edges_graph = edges.map(f =>org.apache.spark.graphx.Edge (f.source.toLong, f.target.toLong,""))
+    val edges_graph = edges.map(f => org.apache.spark.graphx.Edge (f.source.toLong, f.target.toLong,""))
    
     Graph(nodes_graph, edges_graph)
 
